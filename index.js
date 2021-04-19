@@ -30,11 +30,16 @@ var server = http.createServer(function(req, res) {
   var path = parsedUrl.pathname;
   var trimmedPath = path.replace(/^\/+|\/+$/g, '');
 
+// before sending the Response
+// Get the HTTP method (for example get request) -
+// the req object (defined in function up) is new for every single incoming request.
+var method = req.method.toLowerCase();
+
   // Send the Response
   res.end('Hello World!\n');
 
-  // Log the request path
-  console.log('Request is received on path: ' + trimmedPath);
+  // Log the request path and method
+  console.log('Request is received on path: ' + trimmedPath + 'with this method '+ method);
 
 
 });
