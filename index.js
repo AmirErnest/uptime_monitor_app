@@ -38,14 +38,15 @@ var server = http.createServer(function(req, res) {
   // the req object (defined in function up) is new for every single incoming request.
   var method = req.method.toLowerCase();
 
+  //Get th headers as an object
+  var headers = req.headers;
+
   // Send the Response
   res.end('Hello World!\n');
 
-  // Log the request path and method
-  console.log('Request is received on path: ' + trimmedPath + ' with this method '+
-                method + ' and with these query string parameters', queryStringObject);
-
-
+  console.log('request received with these headers: ',headers);
+  // Log the request path, method and query
+  //console.log('Request is received on path: ' + trimmedPath + ' with this method '+ method + ' and with these query string parameters', queryStringObject);
 });
 
 
